@@ -10,8 +10,8 @@ class SettingSeeder extends Seeder
 {
     public function run()
     {
-        $settingArray['site_name']          = 'Webiwise';
-        $settingArray['site_email']         = 'info@webiwise.com';
+        $settingArray['site_name']          = 'Flezhub';
+        $settingArray['site_email']         = 'info@flezhub.com';
         $settingArray['site_phone_number']  = '+12055759342';
         $settingArray['site_currency_name'] = 'NGN';
         $settingArray['site_currency_code'] = '₦';
@@ -20,7 +20,7 @@ class SettingSeeder extends Seeder
         $settingArray['site_logo']          = 'logo.png';
         $settingArray['site_logo_white']    = 'logo-white.png';
         $settingArray['site_favicon']       = 'favicon/apple-touch-icon.png';
-        $settingArray['site_description']   = 'Webiwise is an online store platform in Nigeria.';
+        $settingArray['site_description']   = 'Flezhub is an online store platform in Nigeria.';
 
         $settingArray['mail_host']         = '';
         $settingArray['mail_port']         = '';
@@ -28,7 +28,7 @@ class SettingSeeder extends Seeder
         $settingArray['mail_password']     = '';
         $settingArray['mail_from_name']    = '';
         $settingArray['mail_from_address'] = '';
-        $settingArray['mail_disabled']     = SmtpStatus::INACTIVE();
+        $settingArray['mail_disabled']     = 1;
 
         $settingArray['social_facebook']  = '';
         $settingArray['social_twitter']   = '';
@@ -48,10 +48,10 @@ class SettingSeeder extends Seeder
         $settingArray['order_commission'] = 0.5;
         $settingArray['share_commission'] = 5;
 
-        $settingArray['social_facebook']  = 'https://web.facebook.com/webiwise';
-        $settingArray['social_twitter']   = 'https://twitter.com/WebiWise';
-        $settingArray['social_youtube']   = 'https://www.youtube.com/channel/UC78ag0ZuO-ltGSpcOlhEonw';
-        $settingArray['social_linkedin'] = 'https://www.linkedin.com/company/webipay';
+        $settingArray['social_facebook']  = 'https://www.facebook.com/groups/420529179412808/?ref=share_group_link';
+        $settingArray['social_twitter']   = 'https://twitter.com/FlezhubOfficial?t=c6cqsxBwxNS_J79Sd6b1-g&s=09';
+        $settingArray['social_telegram']   = 'https://t.me/FLEZHUB_OFFICIAL';
+        $settingArray['social_instagram'] = 'https://www.instagram.com/invites/contact/?i=h3zfvx9wemw8&utm_content=o7wrsu4';
 
         SettingInsert::set($settingArray);
         SettingInsert::save();

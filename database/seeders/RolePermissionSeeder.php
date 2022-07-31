@@ -39,25 +39,25 @@ class RolePermissionSeeder extends Seeder
 
         Role::insert([
             [
-                'name'       => UserRole::SUPERADMIN(),
+                'name'       => UserRole::SUPERADMIN,
                 'guard_name' => 'web',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name'       => UserRole::ADMIN(),
+                'name'       => UserRole::ADMIN,
                 'guard_name' => 'web',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name'       => UserRole::SHOPMANAGER(),
+                'name'       => UserRole::SHOPMANAGER,
                 'guard_name' => 'web',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name'       => UserRole::CUSTOMER(),
+                'name'       => UserRole::CUSTOMER,
                 'guard_name' => 'web',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),

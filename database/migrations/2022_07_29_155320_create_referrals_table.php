@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('referrals', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('referrer_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('referrer_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

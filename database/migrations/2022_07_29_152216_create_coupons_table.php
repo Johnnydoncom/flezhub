@@ -18,10 +18,11 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->string('code', 20)->unique();
             $table->integer('usages_left')->default(1);
-            $table->boolean('bound_to_user')->default(false);
             $table->boolean('multi_use')->default(false);
-            $table->json('details')->nullable();
+            $table->decimal('value');
+            $table->foreignId('package_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamp('expired_at')->nullable();
+            $table->string('status')->default(\App\Enums\CouponStatus::Active);
             $table->timestamps();
         });
     }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Coupon;
+
 if (!function_exists('pluck')) {
     function pluck($array, $value, $key = null)
     {
@@ -78,3 +80,43 @@ function generateUniqueAccountId() {
 }
 
 
+function generateCoupon($value, $packageId, $count=1) {
+    $codes = collect([]);
+
+    for ($i = 1; $i <= $count; $i++) {
+        do {
+            $code = generateCode();
+        } while (\App\Models\Coupon::where('code', "=", $code)->exists());
+
+        $coupon = new Coupon();
+        $coupon->code = $code;
+        $coupon->package_id = $packageId;
+        $coupon->value = $value;
+        $coupon->save();
+
+        $codes->push($code);
+    }
+    return $codes;
+}
+
+function generateCode(): string
+{
+    $characters = config('coupon.allowed_symbols');
+    $mask = config('coupon.code_mask');
+    $maskLength = substr_count($mask, '*');
+    $randomCharacter = [];
+
+    for ($i = 1; $i <= $maskLength; $i++) {
+        $character = $characters[rand(0, strlen($characters) - 1)];
+        $randomCharacter[] = $character;
+    }
+
+    shuffle($randomCharacter);
+    $length = count($randomCharacter);
+
+    for ($i = 0; $i < $length; $i++) {
+        $mask = preg_replace('/\*/', $randomCharacter[$i], $mask, 1);
+    }
+
+    return $mask;
+}
